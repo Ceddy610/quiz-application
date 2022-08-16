@@ -1,7 +1,13 @@
 <div class="bg">
-<div class="quiz-container" *ngIf="question; else loader">
+<div class="quiz-container" *ngIf="question && !loading;else loader">
     <div id="item-1">
-      <span>Quiz</span>
+      <span id="item-2">Quiz - with Categories</span>
+      <mat-form-field appearance="fill">
+        <mat-label>Categories</mat-label>
+        <mat-select [formControl]="category" (valueChange)="onChange($event)" multiple>
+          <mat-option *ngFor="let elem of list | keyvalue" [value]="elem.value[elem.value.length-1]">{{elem.key}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 <mat-card id="item-0">
   <mat-card-title>{{question.category}}</mat-card-title>
@@ -9,10 +15,10 @@
   <mat-card-content class="text">
     <p>{{question.question}}</p>
   </mat-card-content>
-  <mat-card-actions class="btn-container">
+  <mat-card-actions class="btn-container" *ngIf="answers">
     <button *ngFor="let answer of answers"
-            [disabled]="answered"
             mat-raised-button
+            [disabled]="answered"
             [ngClass]="[btnSt]"
             (click)="answerClick(answer)"
     >{{answer}}</button>

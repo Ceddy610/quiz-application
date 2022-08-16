@@ -14,4 +14,12 @@ export class QuizService {
   getQuestions(){
     return this.httpclient.get<QuizModel[]>('https://the-trivia-api.com/api/questions?limit=100')
   }
+
+  getCategoryList(){
+    return this.httpclient.get<Map<String, String[]>>('https://the-trivia-api.com/api/categories')
+  }
+
+  getQuestionsByCategory(query: any){
+    return this.httpclient.get<QuizModel[]>(`https://the-trivia-api.com/api/questions?categories=${query}&limit=100`)
+  }
 }
