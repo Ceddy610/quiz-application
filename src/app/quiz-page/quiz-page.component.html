@@ -1,0 +1,41 @@
+<div class="bg">
+<div class="quiz-container" *ngIf="question; else loader">
+    <div id="item-1">
+      <span>Quiz</span>
+    </div>
+<mat-card id="item-0">
+  <mat-card-title>{{question.category}}</mat-card-title>
+  <mat-card-subtitle>{{question.difficulty}}</mat-card-subtitle>
+  <mat-card-content class="text">
+    <p>{{question.question}}</p>
+  </mat-card-content>
+  <mat-card-actions class="btn-container">
+    <button *ngFor="let answer of answers"
+            [disabled]="answered"
+            mat-raised-button
+            [ngClass]="[btnSt]"
+            (click)="answerClick(answer)"
+    >{{answer}}</button>
+  </mat-card-actions>
+</mat-card>
+</div>
+  <ng-template class="loader" #loader>
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </ng-template>
+</div>

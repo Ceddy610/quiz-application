@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/asow-webshop'),
+      dir: require('path').join(__dirname, './coverage/quiz-website'),
       subdir: '.',
       reporters: [
         { type: 'html' },
