@@ -25,7 +25,6 @@ export class QuizPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.QuizService.getCategoryList().subscribe((list: any) => {
-      console.log(list);
       this.list = list
     })
     this.QuizService.getQuestions().subscribe((questions) => {
