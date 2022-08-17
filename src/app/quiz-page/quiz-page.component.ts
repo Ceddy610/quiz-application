@@ -17,6 +17,7 @@ export class QuizPageComponent implements OnInit {
   list = new Map<String, String[]>();
   category = new FormControl('');
   loading: boolean = false;
+  points: number = 0;
 
 
   constructor(
@@ -43,6 +44,7 @@ export class QuizPageComponent implements OnInit {
     if($event === this.question.correctAnswer) {
       this.btnSt = 'correct-button';
       this.answered = true;
+      this.points++;
       setTimeout(() => {
         this.answers = [];
         this.question = this.getQuestion();

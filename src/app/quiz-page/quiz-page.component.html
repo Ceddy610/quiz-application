@@ -1,7 +1,10 @@
 <div class="bg">
 <div class="quiz-container" *ngIf="question && !loading;else loader">
     <div id="item-1">
-      <span id="item-2">Quiz - with Categories</span>
+      <div id="item-2">
+      <span>Quiz - with Categories</span>
+      <span>Points: {{points}}</span>
+    </div>
       <mat-form-field appearance="fill">
         <mat-label>Categories</mat-label>
         <mat-select [formControl]="category" (valueChange)="onChange($event)" multiple>

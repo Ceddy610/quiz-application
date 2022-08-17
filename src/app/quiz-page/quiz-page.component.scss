@@ -37,21 +37,27 @@
 }
 
 #item-2 {
-  font-size: 3em;
+  display: flex;
+  align-content: space-evenly;
+  justify-content: space-between;
+  font-size: 2em;
   padding-bottom: 30px;
 
 }
 
 .correct-button {
   background-color: chartreuse;
+  width: auto;
 }
 
 .wrong-button {
   background-color: #ff0026;
+  width: auto;
 }
 
 .default-button {
   background-color: #bbebff;
+  width: auto;
 }
 
 .btn-container{
