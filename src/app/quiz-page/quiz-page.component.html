@@ -18,7 +18,7 @@
   <mat-card-content class="text">
     <p>{{question.question}}</p>
   </mat-card-content>
-  <mat-card-actions class="btn-container" *ngIf="answers">
+  <mat-card-actions *ngIf="answers">
     <button *ngFor="let answer of answers"
             mat-raised-button
             [disabled]="answered"

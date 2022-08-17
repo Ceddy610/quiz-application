@@ -1,16 +1,17 @@
 .quiz-container {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 #item-0 {
-
   display: flex;
   flex-flow: wrap;
   flex-direction: column;
   background-color: #f3fffb;
   box-shadow: black;
+  flex: 50%;
 
 }
 
@@ -28,7 +29,7 @@
   display: flex;
   align-content: space-evenly;
   justify-content: space-between;
-  font-size: 2em;
+  font-size: 2vw;
   padding-bottom: 30px;
 
 }
@@ -48,13 +49,20 @@
   width: auto;
 }
 
-.btn-container{
+mat-card-actions {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  gap: 5px;
 }
 
 
+@media (max-width: 800px) {
+  .bg {
+    flex-direction: column;
+  }
+}
 
 .bg {
   width: 100%;
@@ -167,6 +175,33 @@
 
 .text{
   font-size: 1.15em;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  .text {
+    font-size: 1.15em;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .text {
+    font-size: 0.75em;
+  }
+  .wrong-button {
+    font-size: 0.75em;
+  }
+  .correct-button {
+    font-size: 0.75em;
+  }
+  .default-button {
+    font-size: 0.75em;
+  }
+  .mat-raised-button[disabled] {
+    background-color: chartreuse;
+    font-size: 0.75em;
+  }
 }
 
 @keyframes spin {
