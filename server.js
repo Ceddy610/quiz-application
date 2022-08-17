@@ -1,15 +1,10 @@
 const express = require('express');
-const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
+const path = require('path');
 const app = express();
 
 // Run the app by serving the static files in the dist directory
-app.use(express.static(__dirname + '/dist'),expressCspHeader({
-  policies: {
-    'default-src': [expressCspHeader.NONE],
-    'img-src': [expressCspHeader.SELF],
-  }
-}));
+app.use(express.static(__dirname + '/dist/quiz-website'));
 
-
-// Start the app by listening on the default Heroku port
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'/dist/quiz-website/index.html'));});
 app.listen(process.env.PORT || 8080);
